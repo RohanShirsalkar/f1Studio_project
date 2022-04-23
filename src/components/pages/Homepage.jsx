@@ -1,7 +1,7 @@
 import React from 'react'
-import TableRow from './TableRow'
-import {tableData} from '../TableData'
-import plusicon from '../icons/plusicon.svg'
+import TableRow from '../TableRow'
+import { tableData } from '../../TableData'
+import plusicon from '../../icons/plusicon.svg'
 import {Link} from 'react-router-dom'
 
 export default function Homepage() {

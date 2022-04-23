@@ -8,7 +8,7 @@ export default function Navigation(props) {
     <div>
       <div id='navigationComponent' className="w-100 d-flex py-2 px-3 justify-content-between">
         <div className="left">
-          <Link to={props.previousUrl}><img src={leftarrowicon} alt="err" /></Link><span className='text-white ms-4'>{props.title}</span>
+          <Link to={props.previousUrl ? props.previousUrl : "#"}><img src={leftarrowicon} alt="err" /></Link><span className='text-white ms-4'>{props.title}</span>
         </div>
 
         <div className="right">

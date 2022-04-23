@@ -96,7 +96,7 @@ const tableData = [
         shippingPoint : "Russia Plant",
         createdBy : "Manoj Bajpayee",
         expiry : "Expires in 6 days"
-    },
+    },      
 ]       
 
 export {tableData as tableData}

@@ -1,15 +1,16 @@
 import React from 'react'
-import Navigation from './Navigation'
-import downarrowicon from '../icons/downarrowicon.svg'
-import ConfigureMenu from './ConfigureMenu'
+import Navigation from '../Navigation'
+import ConfigureMenu from '../ConfigureMenu'
+import { Link } from 'react-router-dom'
+import Footer from '../Footer'
 
 export default function ConfigureOrderPage() {
     return (
         <div>
 
-            <Navigation title={"Configure a new door"} previousUrl={"/new_order"} />-
+            <Navigation title={"Configure a new door 1/3"} previousUrl={"/new_order"} />-
 
-            <div className="container w-75 " style={{position: "relative    "}} >
+            <div className="container w-75 " style={{ position: "relative    " }} >
                 <div class="card w-100 pt-3" style={{ height: "100vh" }}>
 
                     <div class="card-body mx-auto" style={{ width: "70%" }}>
@@ -19,9 +20,8 @@ export default function ConfigureOrderPage() {
                         <ConfigureMenu title={"Door Type"} />
                     </div>
                 </div>
-            <div className='card  fixed-bottom py-3' style={{paddingRight: '13%'}}>
-                <button className='btn btn-primary ms-auto' style={{width: "150px", backgroundColor:"#66332B"}}>CONFIGURE</button>
-            </div>
+
+                <Footer btn1={"CONFIGURE"} url1={"/new_order/configure_order/add_details"} />
             </div>
 
         </div>

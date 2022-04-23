@@ -1,13 +1,15 @@
 import './App.css';
-import Homepage from './components/Homepage'
+import Homepage from './components/pages/Homepage'
 import Navbar from './components/Navbar'
+import CreateorderPage from './components/pages/CreateorderPage';
+import ConfigureOrderPage from './components/pages/ConfigureOrderPage';
+import OrderDetailsPage from './components/pages/OrderDetailsPage';
+import Cart from './components/pages/Cart';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
-import CreateorderPage from './components/CreateorderPage';
-import ConfigureOrderPage from './components/ConfigureOrderPage';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/new_order" element={<CreateorderPage />} />
         <Route path="/new_order/configure_order" element={<ConfigureOrderPage />} />
+        <Route path="/new_order/configure_order/add_details" element={<OrderDetailsPage />} />
+        <Route path="/new_order/configure_order/add_details/cart" element={<Cart />} />
       </Routes>
 
     </Router>

@@ -1,6 +1,6 @@
 import React from 'react'
-import Navigation from './Navigation'
-import CreateOrderCard from './CreateOrderCard'
+import Navigation from '../Navigation'
+import CreateOrderCard from '../CreateOrderCard'
 
 
 export default function CreateorderPage() {
