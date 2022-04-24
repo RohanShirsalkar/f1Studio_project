@@ -1,6 +1,6 @@
 import React from 'react'
 import TableRow from '../TableRow'
-import { tableData } from '../../TableData'
+import { tableData } from '../data/TableData'
 import plusicon from '../../icons/plusicon.svg'
 import {Link} from 'react-router-dom'
 
@@ -8,7 +8,7 @@ export default function Homepage() {
 
     const tableRowArray = tableData.map(element => {
         return (
-            <TableRow productInfo={element.productInfo} cartName={element.cartName} shippingPoint={element.shippingPoint} createdBy={element.createdBy} expiry={element.expiry} />
+            <TableRow productInfo={element.productInfo} cartName={element.cartName} shippingPoint={element.shippingPoint} createdBy={element.createdBy} expiry={element.expiry} date={element.date ? element.date : null} />
         )
     })
 
@@ -47,7 +47,7 @@ export default function Homepage() {
                         </tr>
                     </thead>
                     <tbody style={{ fontSize: "15px" }}>
-                        {tableRowArray}
+                        {tableRowArray.reverse()}
                     </tbody>
                 </table>
 

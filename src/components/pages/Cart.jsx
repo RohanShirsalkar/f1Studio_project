@@ -6,8 +6,28 @@ import copyicon from '../../icons/copyicon.svg'
 import pencilicon from '../../icons/pencilicon.svg'
 import Footer from '../Footer'
 import { Link } from 'react-router-dom'
+import { tableData } from '../data/TableData'
+
 
 export default function Cart() {
+
+    const today = new Date().toDateString()
+    const placeOrder = () => {
+        tableData.push(
+            {
+                
+                productInfo: "2 New Collection Garage Door, Back Entry Door",
+                cartName: "Johnson_Classic14209123",
+                shippingPoint: "Russia Plant",
+                createdBy: "Rohan Shirsalkar",
+                expiry: "Expires in 6 days",
+                date: today,
+                
+            }
+            )
+        }
+        // console.log(typeof(today))
+
     return (
         <div>
             <Navigation title={"Product name #Cart number"} previousUrl={"/new_order/configure_order/add_details"} />
@@ -114,7 +134,6 @@ export default function Cart() {
                         </div>
                     </div>
                 </div>
-                {/* py-2 ps-2 pe-5 */}
 
                 <div className='mb-2'>
                     <div class="card">
@@ -124,11 +143,11 @@ export default function Cart() {
                                     <span>Billing To</span>
                                     <h5>Bement Jared</h5>
                                     <p>144 Curt Shores, 50, Madison Avenue Hixson - 42040</p>
-                                    <span>Contact: </span><span>(123) 456 7890</span>    
+                                    <span>Contact: </span><span>(123) 456 7890</span>
                                 </div>
 
                                 <div className="right p-5 ">
-                                    <a href="#" style={{ color: "brown", textDecoration:"none", fontWeight: "bold" }}>CHANGE</a>
+                                    <a href="#" style={{ color: "brown", textDecoration: "none", fontWeight: "bold" }}>CHANGE</a>
                                 </div>
 
 
@@ -139,22 +158,22 @@ export default function Cart() {
                                     <span>Billing To</span>
                                     <h5>Bement Jared</h5>
                                     <p>144 Curt Shores, 50, Madison Avenue Hixson - 42040</p>
-                                    <span>Contact: </span><span>(123) 456 7890</span>    
+                                    <span>Contact: </span><span>(123) 456 7890</span>
                                 </div>
 
                                 <div className="right p-5 ">
-                                    <a href="#" style={{ color: "brown", textDecoration:"none", fontWeight: "bold" }}>CHANGE</a>
+                                    <a href="#" style={{ color: "brown", textDecoration: "none", fontWeight: "bold" }}>CHANGE</a>
                                 </div>
 
 
                             </div>
 
-                        
+
                         </div>
                     </div>
                 </div>
 
-                <Footer btn1={"PLACE ORDER"} btn2={"ADD MORE"} url1={"/"} url2={"/new_order"}/>
+                <Footer onClick={placeOrder} btn1={"PLACE ORDER"} btn2={"ADD MORE"} url1={"/"} url2={"/new_order"} />
             </div>
         </div>
     )

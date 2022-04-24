@@ -10,21 +10,27 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { OrderDetailState } from './components/context/OrderDetails'
 
 function App() {
   return (
-    <Router>
+    <>
+      <OrderDetailState >
+        <Router>
 
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/new_order" element={<CreateorderPage />} />
-        <Route path="/new_order/configure_order" element={<ConfigureOrderPage />} />
-        <Route path="/new_order/configure_order/add_details" element={<OrderDetailsPage />} />
-        <Route path="/new_order/configure_order/add_details/cart" element={<Cart />} />
-      </Routes>
+          <Navbar />
 
-    </Router>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/new_order" element={<CreateorderPage />} />
+            <Route path="/new_order/configure_order" element={<ConfigureOrderPage />} />
+            <Route path="/new_order/configure_order/add_details" element={<OrderDetailsPage />} />
+            <Route path="/new_order/configure_order/add_details/cart" element={<Cart />} />
+          </Routes>
+
+        </Router>
+      </OrderDetailState>
+    </>
   );
 }
 
