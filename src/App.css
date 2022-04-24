@@ -118,6 +118,25 @@ h3 {
   top: 5px
 }
 
+/* CART PAGE */
+
+.quantitySelector button {
+  background-color: rgb(243, 243, 243);
+  
+}
+
+.cartPagebuttons .btn {
+  color: #66332B;
+  border-color: #66332B;
+}
+
+.summary div {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+
 /* MEDIA QUERUES */
 
 @media only screen and (max-width : 420px) {
