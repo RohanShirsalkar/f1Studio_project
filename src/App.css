@@ -2,9 +2,11 @@
   margin: 0;
   padding: 0;
 }
-.row{
+
+.row {
   display: flex;
 }
+
 /* NAVIGATION */
 
 .navigation ul {
@@ -99,10 +101,11 @@ h3 {
 
 /* CONFIGURE ORDER PAGE */
 
-.configureMenu ul{
+.configureMenu ul {
   width: 450px;
 }
-.configureMenu{
+
+.configureMenu {
   margin-bottom: 20px;
 
 }
@@ -124,7 +127,7 @@ h3 {
 
 .quantitySelector button {
   background-color: rgb(243, 243, 243);
-  
+
 }
 
 .cartPagebuttons .btn {
@@ -135,20 +138,140 @@ h3 {
 .summary div {
   display: flex;
   justify-content: space-between;
-  
+
 }
 
 
 /* MEDIA QUERUES */
 
-@media only screen and (max-width : 420px) {
+@media only screen and (min-width : 724px) and (max-width : 1024px) {
   
-  .dRow{
+  
+  #homepageTable{
+    display: none !important;
+  }
+
+  #createOrderPage {
+    padding: 10px !important;
+    width: 100% !important;
+  }
+
+  #createOrderPage_2 {
+    width: 100% !important;
+
+  }
+  #createOrderPage_2 #container {
+    padding: 25px;
+    width: 100% !important;
+
+  }
+  #createOrderPage_2 .card {
+    height: auto !important;
+
+  }
+  #createOrderPage_3 {
+    width: 100% !important;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  #createOrderPage_3 .container {
+    width: 100% !important;
+    padding: 25px;
+  }
+  #cartPage {
+    width: 100% !important;
+  }
+
+  #firstCard {
+    width: 100% !important;
+  }
+
+  #firsrCard h5 {
+    font-size: 15px !important;
+  }
+
+  #priceSection {
+    flex-wrap:nowrap !important ;
+    align-items: center;
+    /* justify-content: space-between; */
+    /* display: none !important; */
+  }
+
+
+  .priceDetails {
+    text-align: right !important;
+    /* width: 30% !important; */
+
+  }
+
+  #mainCard {
+    padding: 0 !important;
+  }
+
+  #cartpg-block-2{
     flex-direction: column;
   }
+
+  #cartpg-block-2 .left {
+    width: 100% !important;
+  }
+
+  #cartpg-block-2 .right {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  #cartpg-lastBlock {
+    flex-direction: column;
+  }
+  #cartpg-lastBlock .left {
+    width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 10px;
+
+    border-right: none !important;
+
+  }
+
+  .change-btn{
+    /* width: 20%  !important; */
+    padding: 20px !important;
+  }
+
+  #shippingDetails {
+    width: 100% !important;
+
+  }
+
+  #cartpg-lastBlock .right {
+    border-top: 1px solid grey;
+
+    width: 100% !important;
+    padding: 0 !important;
+    padding-top: 10px !important;
+  }
+
+
+
   
+}
+
+@media only screen and (max-width : 420px) {
+
+  .dRow {
+    flex-direction: column;
+  }
+
   .navigation ul {
     justify-content: center;
+  }
+
+  #homepageTable{
+    display: none !important;
+  }
+  #addButton {
+    right: 5% ;
   }
 
   .navigation .lItem-1::after {
@@ -162,63 +285,159 @@ h3 {
     background-color: yellow;
   }
 
-  #createOrderPage{
+  #createOrderPage {
     padding: 10px !important;
     width: 100% !important;
   }
 
-  #createOrderPage_2{
+  #createOrderPage_2 {
     width: 100% !important;
 
   }
-  #createOrderPage_2 #container{
+
+  #createOrderPage_2 #container {
     padding: 15px;
     width: 100% !important;
 
   }
 
-  #createOrderPage_2 .card{
+  #createOrderPage_2 .card {
     height: auto !important;
 
   }
-  
-  .configureMenuBtns{
+
+  .configureMenuBtns {
     width: 100%;
     padding: 10px;
   }
 
-  #createOrderPage_3{
-    width: 100%!important;
+  #createOrderPage_3 {
+    width: 100% !important;
     padding: 10px;
+    overflow: hidden;
   }
 
-  #createOrderPage_3 .container{
+  #createOrderPage_3 .container {
     width: 100% !important;
     padding: 15px;
   }
 
-  #createOrderPage_3 #radioCheck{
+  #createOrderPage_3 #radioCheck {
     display: flex !important;
-    flex-direction: column !important; 
-    width: 100% !important; 
+    flex-direction: column !important;
+    width: 100% !important;
   }
 
-  .configureMenu .form-check{
+  .configureMenu .form-check {
     padding-bottom: 13px;
   }
-  #block-1{
+
+  #block-1 {
     width: auto !important;
+  }
+
+  #cartPage {
+    width: 100% !important;
+  }
+
+  #firstCard {
+    width: 100% !important;
+  }
+
+  #firsrCard h5 {
+    font-size: 15px !important;
+  }
+
+  #priceSection {
+    align-items: center;
+    justify-content: space-evenly;
+    display: none !important;
+  }
+
+  #priceSection-mobile{
+    display: flex !important;
+  }
+
+  .quantitySelector {
+    width: 50% !important;
+  }
+
+  .multiplier {
+    text-align: left !important;
+    /* width: 30% !important; */
+
+  }
+
+  .priceDetails {
+    text-align: right !important;
+    /* width: 30% !important; */
+
+  }
+
+  #mainCard {
+    padding: 0 !important;
+  }
+
+  #cartpg-block-2 .left {
+    width: 100% !important;
+  }
+
+  #cartpg-block-2 .right {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  #cartpg-lastBlock .left {
+    width: 100% !important;
+    padding: 0 !important;
+    margin-bottom: 10px;
+
+    border-right: none !important;
+
+  }
+
+  .change-btn{
+    /* width: 20%  !important; */
+    padding: 20px !important;
+  }
+
+  #shippingDetails {
+    width: 100% !important;
+
+  }
+
+  #cartpg-lastBlock .right {
+    border-top: 1px solid grey;
+
+    width: 100% !important;
+    padding: 0 !important;
+    padding-top: 10px !important;
+  }
+
+
+
+
+  #dropdownSelect {
+    width: 100px !important;
   }
 
 
   #dropDownBtns .btn {
     width: 100px !important;
   }
+
   .footer .card {
-    padding: 15px !important;
+    padding: 10px !important;
+    width: 100% !important;
   }
-  .footer .card .btn{
-    width: 100% !important;  
+
+  .footer .card div {
+    margin: 0 !important;
+  }
+
+  .footer .card .btn {
+    width: 100% !important;
+    padding: 10px;
   }
 
 }

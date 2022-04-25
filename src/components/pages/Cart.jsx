@@ -10,32 +10,38 @@ import { tableData } from '../data/TableData'
 
 
 export default function Cart() {
+    const windowSize = window.innerWidth
+    console.log(windowSize)
+    const cartPage = document.getElementById("cartPage")
+
+    // if(cartPage && windowSize < 1100 ) {
+    //     cartPage.classList.remove('container')
+    // }
 
     const today = new Date().toDateString()
     const placeOrder = () => {
         tableData.push(
             {
-                
+
                 productInfo: "2 New Collection Garage Door, Back Entry Door",
                 cartName: "Johnson_Classic14209123",
                 shippingPoint: "Russia Plant",
                 createdBy: "Rohan Shirsalkar",
                 expiry: "Expires in 6 days",
                 date: today,
-                
+
             }
-            )
-        }
-        // console.log(typeof(today))
+        )
+    }
 
     return (
         <div>
             <Navigation title={"Product name #Cart number"} previousUrl={"/new_order/configure_order/add_details"} />
 
-            <div className="container w-75 mt-3 pb-5">
-                <div class="card p-3 mb-2">
+            <div id="cartPage" className="container w-75 mt-3 pb-5">
+                <div id="mainCard" class="card p-3 mb-2">
                     <div class="card-body">
-                        <div className="top mb-4 w-75">
+                        <div id="firstCard" className="top mb-4 w-75">
                             <h5>10' 0'' X 10' 0.0'' CAN211 CC W1 COMPLETE DOOR INTELLICORE OBSCURE, 5TH GENERATION FINISH WALDER DOOR</h5>
 
                             <div className="moreDetails text-secondary" style={{ fontSize: "15px" }}>
@@ -45,7 +51,7 @@ export default function Cart() {
                             </div>
                         </div>
 
-                        <div className="bottom d-flex justify-content-between align-items-start mb-4">
+                        <div id="priceSection" className="bottom flex-wrap-reverse d-flex justify-content-between align-items-start mb-4">
                             <div className="quantitySelector d-flex align-items-center">
                                 <button className=' btn border fw-bold'>-</button>
                                 <input type="number" className='mx-1 border text-center' value="1" style={{ width: "50px", height: "38px" }} />
@@ -65,6 +71,32 @@ export default function Cart() {
                             </div>
                         </div>
 
+
+                        <div id="priceSection-mobile" className="bottom flex-wrap d-flex justify-content-between align-items-start mb-4 d-none" >
+
+                            <div className='d-flex jsutify-content-between'>
+
+
+                                <div className="w-50 multiplier" style={{ textAlign: "", color: "green", }}>
+                                    <span>Standard Multiplier: 432</span><br />
+                                    <span>Secondary Multipliers Applied</span><br />
+                                    <a href="#" className='fw-bold' style={{ textDecoration: "none", color: "brown" }}>Apply MPQ</a>
+                                </div>
+
+                                <div className="w-50 priceDetails " style={{ textAlign: "right", }}>
+                                    <span>Net Price:</span><span className='fs-4 fw-bold'>$4500</span><br />
+                                    <span>Unit Price:</span><span className=''>$4800</span><br />
+                                    <a href="#" style={{ textDecoration: "none", color: "brown", fontSize: "13px" }} >View Price Details</a>
+                                </div>
+
+                            </div>
+                            <div className="quantitySelector mt-3 d-flex align-items-center">
+                                <button className=' btn border fw-bold'>-</button>
+                                <input type="number" className='mx-1 border text-center' value="1" style={{ width: "50px", height: "38px" }} />
+                                <button className=' btn border fw-bold'>+</button>
+                            </div>
+                        </div>
+
                         <div className="cartPagebuttons">
                             <div class="btn-group" role="group" aria-label="Basic outlined example" style={{ width: "100%" }}>
                                 <button type="button" class="btn btn-outline-secondary"><img className='me-2' src={hearticon} alt="" /> FAVORITES</button>
@@ -76,7 +108,7 @@ export default function Cart() {
                     </div>
                 </div>
 
-                <div className='d-flex'>
+                <div id="cartpg-block-2" className='d-flex dRow mb-2'>
                     <div className="left me-1 w-50 mb-2">
                         <div class="card p-2 mb-2">
                             <div class="card-body">
@@ -90,7 +122,7 @@ export default function Cart() {
                             <div class="card-body">
                                 <div class="form-floating ">
                                     <span className='text-dark'>Change Delivery Date</span><br />
-                                    <input type="email" class="py-2 border my-1 px-2" placeholder="name@example.com" style={{ width: "100%", }} />
+                                    <input type="email" class="py-2 border my-1 px-2" placeholder="Enter PO number" style={{ width: "100%", }} />
                                     <span className='text-dark'>Change Delivery Date</span><br />
 
                                 </div>
@@ -137,31 +169,31 @@ export default function Cart() {
 
                 <div className='mb-2'>
                     <div class="card">
-                        <div class="card-body d-flex">
+                        <div id="cartpg-lastBlock" class="card-body d-flex dRow">
                             <div className="left  w-50 border-end  d-flex align-items-center justify-content-between">
-                                <div className="left p-2 w-75">
-                                    <span>Billing To</span>
+                                <div id="shippingDetails" className="left p-2 w-75">
+                                    <span>Shipping To</span>
                                     <h5>Bement Jared</h5>
                                     <p>144 Curt Shores, 50, Madison Avenue Hixson - 42040</p>
                                     <span>Contact: </span><span>(123) 456 7890</span>
                                 </div>
 
-                                <div className="right p-5 ">
+                                <div className=" change-btn  p-5 ">
                                     <a href="#" style={{ color: "brown", textDecoration: "none", fontWeight: "bold" }}>CHANGE</a>
                                 </div>
 
 
                             </div>
 
-                            <div className="left  w-50   d-flex align-items-center justify-content-between">
-                                <div className="left p-2 ps-4 w-75">
+                            <div className="right  w-50   d-flex align-items-center justify-content-between">
+                                <div id="billing" className="left p-2 ps-4 w-75">
                                     <span>Billing To</span>
                                     <h5>Bement Jared</h5>
                                     <p>144 Curt Shores, 50, Madison Avenue Hixson - 42040</p>
                                     <span>Contact: </span><span>(123) 456 7890</span>
                                 </div>
 
-                                <div className="right p-5 ">
+                                <div className="change-btn p-5 ">
                                     <a href="#" style={{ color: "brown", textDecoration: "none", fontWeight: "bold" }}>CHANGE</a>
                                 </div>
 

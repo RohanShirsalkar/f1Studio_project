@@ -2,13 +2,14 @@ import React from 'react'
 import bellicon from '../icons/bellicon.svg'
 import listicon from '../icons/listicon.svg'
 import questionicon from '../icons/questionicon.svg'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-black  ">
                 <div className="container-fluid">
-                    <a className="navbar-brand fw-bold fs-4" href="#">f1Studioz</a>
+                    <Link className="navbar-brand fw-bold fs-4" to="/">f1Studioz</Link>
 
 
                    

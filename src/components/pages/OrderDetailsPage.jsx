@@ -110,6 +110,7 @@ export default function OrderDetailsPage() {
 
     return (
         <div>
+            
             <Navigation previousUrl={"/new_order/configure_order"} title={"Configure a new door 2/3"} />
 
             <div id="createOrderPage_3" className="container mt-3 w-75">
