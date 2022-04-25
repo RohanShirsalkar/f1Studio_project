@@ -12,19 +12,19 @@ export default function DropdownButton(props) {
     }
 
     const listItemsArr = props.menus.map(element => {
-        return(
-            <ListItem handleClick={handleClick} data={element}/>
+        return (
+            <ListItem handleClick={handleClick} data={element} />
         )
     })
 
     return (
-        <div>
+        <div id='dropDownBtns'>
             <div class="dropdown">
-                <button class="btn border configureMenuBtns" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style={{ width: "150px" }}>
-                    {userSelectedMenu ? userSelectedMenu+" " + props.title  : props.title}
+                <button class="btn border configureMenuBtns" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{ width: "150px" }}>
+                    {userSelectedMenu ? userSelectedMenu + " " + props.title : props.title}
                 </button><span className='dropdownIcon'><img src={downarrowicon} alt="" /></span>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style={{ width: "150px" }} >
-                    {listItemsArr}
+                <ul class="dropdown-menu" style={{ width: "150px" }} >
+                        {listItemsArr}
                 </ul>
             </div>
         </div>

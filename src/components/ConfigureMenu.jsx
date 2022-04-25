@@ -25,22 +25,22 @@ export default function ConfigureMenu(props) {
     }
 
 
-
     const listItemsArr = props.menus.map(element => {
         return (
-            <ListItem handleClick={ handleClick} fieldName={props.fieldName} data={element} />
+            <ListItem handleClick={ props.handleClick ? props.handleClick : handleClick} fieldName={props.fieldName} data={element} />
         )
     })
 
     return (
 
         <div>
-            <div className=' d-flex justify-content-between configureMenu'>
+            <div className=' d-flex dRow justify-content-between configureMenu'>
                 <p>{props.title}</p>
 
                 <div class="dropdown ">
                     <button class="btn border configureMenuBtns" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
-                        {userSelectedMenu ? userSelectedMenu : "Select"}
+                        {props.menuName ? props.menuName : "Select"}
+                        {/* {userSelectedMenu ? userSelectedMenu : "Select"} */}
                     </button><span className='dropdownIcon'><img src={downarrowicon} alt="" /></span>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
                         {listItemsArr}

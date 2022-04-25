@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
 }
-
+.row{
+  display: flex;
+}
 /* NAVIGATION */
 
 .navigation ul {
@@ -140,7 +142,11 @@ h3 {
 /* MEDIA QUERUES */
 
 @media only screen and (max-width : 420px) {
-
+  
+  .dRow{
+    flex-direction: column;
+  }
+  
   .navigation ul {
     justify-content: center;
   }
@@ -154,6 +160,65 @@ h3 {
     left: -100%;
     bottom: -10px;
     background-color: yellow;
+  }
+
+  #createOrderPage{
+    padding: 10px !important;
+    width: 100% !important;
+  }
+
+  #createOrderPage_2{
+    width: 100% !important;
+
+  }
+  #createOrderPage_2 #container{
+    padding: 15px;
+    width: 100% !important;
+
+  }
+
+  #createOrderPage_2 .card{
+    height: auto !important;
+
+  }
+  
+  .configureMenuBtns{
+    width: 100%;
+    padding: 10px;
+  }
+
+  #createOrderPage_3{
+    width: 100%!important;
+    padding: 10px;
+  }
+
+  #createOrderPage_3 .container{
+    width: 100% !important;
+    padding: 15px;
+  }
+
+  #createOrderPage_3 #radioCheck{
+    display: flex !important;
+    flex-direction: column !important; 
+    width: 100% !important; 
+  }
+
+  .configureMenu .form-check{
+    padding-bottom: 13px;
+  }
+  #block-1{
+    width: auto !important;
+  }
+
+
+  #dropDownBtns .btn {
+    width: 100px !important;
+  }
+  .footer .card {
+    padding: 15px !important;
+  }
+  .footer .card .btn{
+    width: 100% !important;  
   }
 
 }

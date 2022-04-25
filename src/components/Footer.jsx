@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Footer(props) {
 
     return (
-        <div>
+        <div className='footer'>
             <div className='card  fixed-bottom py-3 ' style={{ paddingRight: '13%'}}>
                 <div className='ms-auto'>
 
