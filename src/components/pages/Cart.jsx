@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navigation from '../Navigation'
 import hearticon from '../../icons/hearticon.svg'
 import deleteicon from '../../icons/deleteicon.svg'
@@ -10,15 +10,16 @@ import { tableData } from '../data/TableData'
 
 
 export default function Cart() {
-    const windowSize = window.innerWidth
-    console.log(windowSize)
-    const cartPage = document.getElementById("cartPage")
-
-    // if(cartPage && windowSize < 1100 ) {
-    //     cartPage.classList.remove('container')
-    // }
-
     const today = new Date().toDateString()
+
+    const removeContainer = () => {
+
+        if(window.innerWidth < 1100){
+            document.getElementById('cartPage').classList.remove('container')
+        }
+    }
+
+
     const placeOrder = () => {
         tableData.push(
             {
@@ -38,7 +39,7 @@ export default function Cart() {
         <div>
             <Navigation title={"Product name #Cart number"} previousUrl={"/new_order/configure_order/add_details"} />
 
-            <div id="cartPage" className="container w-75 mt-3 pb-5">
+            <div id="cartPage" onLoad={removeContainer} className="container w-75 mt-3 pb-5">
                 <div id="mainCard" class="card p-3 mb-2">
                     <div class="card-body">
                         <div id="firstCard" className="top mb-4 w-75">

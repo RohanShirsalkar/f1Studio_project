@@ -11,6 +11,7 @@ import {
   Route,
 } from "react-router-dom";
 import { OrderDetailState } from './components/context/OrderDetails'
+import FavoritesPage from './components/pages/FavoritesPage';
 
 function App() {
   return (
@@ -18,10 +19,11 @@ function App() {
       <OrderDetailState >
         <Router>
 
-          <Navbar />
 
+          <Navbar />
           <Routes>
             <Route path="/" element={<Homepage />} />
+            <Route path="/favorites" element={<Homepage />} />
             <Route path="/new_order" element={<CreateorderPage />} />
             <Route path="/new_order/configure_order" element={<ConfigureOrderPage />} />
             <Route path="/new_order/configure_order/add_details" element={<OrderDetailsPage />} />

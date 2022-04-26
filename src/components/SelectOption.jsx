@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function configureMenuLI(props) {
+export default function SelectOption (props) {
     return (
-        <div>
-            <option value="1">{props.data}</option>
-        </div>
+        
+            <option value={props.data}>{props.data}</option>
+       
     )
 }

@@ -7,7 +7,16 @@
   display: flex;
 }
 
+#homepageCards {
+  display: none;
+}
+
+
 /* NAVIGATION */
+
+#homePageNav-mobile{
+  display: none;
+}
 
 .navigation ul {
   list-style: none;
@@ -144,10 +153,22 @@ h3 {
 
 /* MEDIA QUERUES */
 
+/* For Tabs */
+
 @media only screen and (min-width : 724px) and (max-width : 1024px) {
-  
-  
-  #homepageTable{
+
+  #homePageNav-mobile{
+    display: block;
+  }
+  #homePageNav-desktop{
+    display: none !important;
+  }
+
+  #homepageCards {
+    display: block;
+  }
+
+  #homepageTable {
     display: none !important;
   }
 
@@ -160,15 +181,18 @@ h3 {
     width: 100% !important;
 
   }
+
   #createOrderPage_2 #container {
     padding: 25px;
     width: 100% !important;
 
   }
+
   #createOrderPage_2 .card {
     height: auto !important;
 
   }
+
   #createOrderPage_3 {
     width: 100% !important;
     padding: 10px;
@@ -179,6 +203,7 @@ h3 {
     width: 100% !important;
     padding: 25px;
   }
+
   #cartPage {
     width: 100% !important;
   }
@@ -192,7 +217,7 @@ h3 {
   }
 
   #priceSection {
-    flex-wrap:nowrap !important ;
+    flex-wrap: nowrap !important;
     align-items: center;
     /* justify-content: space-between; */
     /* display: none !important; */
@@ -209,7 +234,7 @@ h3 {
     padding: 0 !important;
   }
 
-  #cartpg-block-2{
+  #cartpg-block-2 {
     flex-direction: column;
   }
 
@@ -225,6 +250,7 @@ h3 {
   #cartpg-lastBlock {
     flex-direction: column;
   }
+
   #cartpg-lastBlock .left {
     width: 100% !important;
     padding: 0 !important;
@@ -234,7 +260,7 @@ h3 {
 
   }
 
-  .change-btn{
+  .change-btn {
     /* width: 20%  !important; */
     padding: 20px !important;
   }
@@ -254,10 +280,23 @@ h3 {
 
 
 
-  
+
 }
 
+/* For Mobile */
+
 @media only screen and (max-width : 420px) {
+
+  #homePageNav-mobile{
+    display: block;
+  }
+  #homePageNav-desktop{
+    display: none !important;
+  }
+
+  #homepageCards {
+    display: block;
+  }
 
   .dRow {
     flex-direction: column;
@@ -267,11 +306,12 @@ h3 {
     justify-content: center;
   }
 
-  #homepageTable{
+  #homepageTable {
     display: none !important;
   }
+
   #addButton {
-    right: 5% ;
+    right: 5%;
   }
 
   .navigation .lItem-1::after {
@@ -309,6 +349,10 @@ h3 {
   .configureMenuBtns {
     width: 100%;
     padding: 10px;
+  }
+
+  #dropdownSelect-2{
+    width: 100% !important;
   }
 
   #createOrderPage_3 {
@@ -354,7 +398,7 @@ h3 {
     display: none !important;
   }
 
-  #priceSection-mobile{
+  #priceSection-mobile {
     display: flex !important;
   }
 
@@ -396,7 +440,7 @@ h3 {
 
   }
 
-  .change-btn{
+  .change-btn {
     /* width: 20%  !important; */
     padding: 20px !important;
   }

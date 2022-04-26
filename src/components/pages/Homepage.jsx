@@ -1,34 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TableRow from '../TableRow'
 import { tableData } from '../data/TableData'
+import { favorites } from '../data/favoritesData'
 import plusicon from '../../icons/plusicon.svg'
 import { Link } from 'react-router-dom'
 import TableDataCard from '../TableDataCard'
 import searchicon from '../../icons/searchicon.svg'
 import filtericon from '../../icons/filtericon.svg'
+import Table from '../Table'
 
 export default function Homepage() {
+    const [activeTableData, setActiveTableData] = useState(tableData)
 
-    const tableRowArray = tableData.map(element => {
-        return (
-            <TableRow productInfo={element.productInfo} cartName={element.cartName} shippingPoint={element.shippingPoint} createdBy={element.createdBy} expiry={element.expiry} date={element.date ? element.date : null} />
-        )
-    })
+    // const ordersData = tableData.map(element => {
+    //     return (
+    //         <TableRow productInfo={element.productInfo} cartName={element.cartName} shippingPoint={element.shippingPoint} createdBy={element.createdBy} expiry={element.expiry} date={element.date ? element.date : null} />
+    //     )
+    // })
+
+    // const favoritesData = favorites.map(element => {
+    //     <TableRow productInfo={element.productInfo} cartName={element.cartName} shippingPoint={element.shippingPoint} createdBy={element.createdBy} expiry={element.expiry} date={element.date ? element.date : null} />
+    // })
+    
+   
+
+    const handleTableData = () => { 
+        const path = window.location.pathname
+
+        if(path == "/favorites"){
+            setActiveTableData(favorites)
+        }
+        else {
+            setActiveTableData(tableData)
+        }
+        
+    }
 
     return (
         <div>
             <div className="navigation w-100 ">
                 <ul className='d-flex py-2 justify-content-center mb-0'>
-                    <li className='lItem-1'>CARTS</li>
-                    <li className='lItem-2'>FAVORITES</li>
+                <Link to="/" className='lItem-1 text-white mx-5' onClick={handleTableData} style={{textDecoration : "none"}} >CART</Link> 
+                <Link to="/favorites" className='lItem-2 text-white mx-5' onClick={handleTableData} style={{textDecoration : "none"}} >FAVORITES</Link> 
                 </ul>
             </div>
 
             <div className="main-container px-3">
 
-                {/* filter 1 */}
+                {/* filter 1 For Desktop */}
 
-                <div className="navigation-2 d-flex justify-content-between align-items-center py-3 mb-3 d-none">
+                <div id="homePageNav-desktop" className="navigation-2 d-flex justify-content-between align-items-center py-3 mb-3 ">
                     <div className="leftNav text-decoration-">
                         <a className='mx-4 fw-bold' href="#">Archived Cart</a>
                         <a className='mx-4 fw-bold' href="#">Active Cart</a>
@@ -40,9 +61,9 @@ export default function Homepage() {
                     </div>
                 </div>
 
-                {/* filter 2 */}
+                {/* filter 2 For Mobile */}
 
-                <div className='mb-2 mt-4'>
+                <div id="homePageNav-mobile" className='mb-2 mt-4'>
                     <div className='d-flex justify-content-between mb-3 fs-5 px-1'>
                         <span>Carts</span>
 
@@ -65,7 +86,9 @@ export default function Homepage() {
 
                 {/* Desktop Table */}
 
-                <table id="homepageTable" className="table table-striped table-borderless shadow">
+                <Table  data={activeTableData}/>
+
+                {/* <table id="homepageTable" className="table table-striped table-borderless shadow">
                     <thead className='text-secondary' style={{ fontSize: "12px" }}>
                         <tr>
                             <th scope="col">PRODUCT INFORMATION</th>
@@ -80,16 +103,16 @@ export default function Homepage() {
                     </tbody>
                 </table>
 
-                {/* Mobile Cards */}
+                
 
-                <div>
+                <div id="homepageCards" >
                     <TableDataCard />
                     <TableDataCard />
                     <TableDataCard />
                     <TableDataCard />
                     <TableDataCard />
 
-                </div>
+                </div> */}
 
 
             </div>

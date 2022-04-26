@@ -12,7 +12,7 @@ export default function ConfigureOrderPage() {
     return (
         <div>
 
-            <Navigation title={"Configure a new door 1/3"} previousUrl={"/new_order"} />-
+            <Navigation title={"Configure a new door 1/3"} previousUrl={"/new_order"} />
 
             <div id="createOrderPage_2" className="container w-75 " style={{ position: "relative" }} >
                 <div class="card w-100 pt-3" style={{ height: "100vh" }}>
