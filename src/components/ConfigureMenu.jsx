@@ -16,14 +16,16 @@ export default function ConfigureMenu(props) {
         )
     })
 
+    
+
     return (
 
         <div>
             <div className=' d-flex dRow justify-content-between configureMenu'>
                 <p>{props.title}</p>
 
-                <select onChange={props.handleChange} name={props.menuName} id="dropdownSelect-2" class="form-select" aria-label="Default select example" style={{ width: "450px" }}>
-                    <option selected >Select</option>
+                <select onChange={props.handleChange}  name={props.fieldName} id="dropdownSelect-2" class="form-select" aria-label="Default select example" style={{ width: "450px" }}>
+                    <option selected value={undefined}>Select</option>
                     {listItemsArr}
                 </select>
                

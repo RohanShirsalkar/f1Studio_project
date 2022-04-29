@@ -5,9 +5,18 @@ import TableDataCard from '../components/TableDataCard'
 
 export default function Table(props) {
 
+    const today = new Date().toLocaleDateString()
+
+    
     const tableRowArray = props.data.map(element => {
         return (
-            <TableRow productInfo={element.productInfo} cartName={element.cartName} shippingPoint={element.shippingPoint} createdBy={element.createdBy} expiry={element.expiry} date={element.date ? element.date : null} />
+            <TableRow productInfo={element.assemblyType ? element.assemblyType : "NA"} cartName={element.color ? element.color : "NA"} shippingPoint={element.design? element.design : "NA" } createdBy={element.trackRadius ? element.trackRadius : "NA"} expiry={element.section ? element.section : "NA"} date={element.date} />
+        )
+    })
+
+    const cardsArray = props.data.map(element => {
+        return(
+            <TableDataCard date={element.date} section={element.section ? element.section : "NA"} farming={element.farming ? element.farming : "NA"} assemblyType={element.assemblyType ? element.assemblyType : "NA"} color={element.color ? element.color : "NA"} glassType={element.glassType ? element.glassType : "NA"} design={element.design ? element.design : "NA"} />
         )
     })
 
@@ -25,11 +34,11 @@ export default function Table(props) {
                     <table id="homepageTable" className="table table-striped table-borderless shadow">
                         <thead className='text-secondary' style={{ fontSize: "12px" }}>
                             <tr>
-                                <th scope="col">PRODUCT INFORMATION</th>
-                                <th scope="col">CART NAME</th>
-                                <th scope="col">SHIPPING POINT</th>
-                                <th scope="col">CREATED BY</th>
-                                <th scope="col">EXPIRY</th>
+                                <th scope="col">ASSEMBLY TYPE</th>
+                                <th scope="col">COLOR</th>
+                                <th scope="col">DESIGN</th>
+                                <th scope="col">TRACK RADIUS</th>
+                                <th scope="col">SECTION</th>
                             </tr>
                         </thead>
                         <tbody style={{ fontSize: "15px" }}>
@@ -40,11 +49,7 @@ export default function Table(props) {
                     {/* Mobile Cards */}
 
                     <div id="homepageCards" >
-                        <TableDataCard />
-                        <TableDataCard />
-                        <TableDataCard />
-                        <TableDataCard />
-                        <TableDataCard />
+                        {cardsArray.reverse()}
 
                     </div>
                 </div>

@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import Navigation from '../Navigation'
 import ConfigureMenu from '../ConfigureMenu'
-import downarrowicon from '../../icons/downarrowicon.svg'
 import DropdownButton from '../DropdownButton'
 import Footer from '../Footer'
-import { useContext } from 'react'
-import { OrderDetailsContext } from '../context/OrderDetails'
+import { cart } from '../../components/data/cartData'
+import { tableData } from '../data/TableData'
 
 export default function OrderDetailsPage() {
+    const [isFormReady, setIsFromReady] = useState(false)
 
     const [progressBar, setProgerssBar] = useState(0)
     const [cartData, setCartData] = useState()
@@ -18,123 +18,171 @@ export default function OrderDetailsPage() {
     const [windowCode, setWindowCode] = useState()
     const [trackRadius, setTrackRadius] = useState()
     const [trackSize, setTrackSize] = useState()
-    
+    const [glassType, setGlassType] = useState()
+    const [section, setSection] = useState()
+    const [farming, setFarming] = useState()
+    const [spring, setSpring] = useState()
+    const [trackMount, setTrackMount] = useState()
+    const [trackLift, setTracklift] = useState()
+    const [lock, setLock] = useState()
+    const [packaging, setPackaging] = useState()
 
+    const date = new Date().toLocaleDateString()
 
-    let cart = []
+    const checkForm = () => {
 
-    let orderData = {
-        assemblyType: assemblyType,
-        design: design,
-        color: color,
-        windowCode: windowCode,
-        trackRadius: trackRadius,
-        trackSize: trackSize
+       if(assemblyType){
+           if(design){
+               if(color){
+                   if(windowCode){
+                       if(trackRadius){
+                           if(trackSize){
+                               if(glassType){
+                                   if(section){
+                                       if(farming){
+                                           if(spring){
+                                               if(trackMount){
+                                                   if(trackLift){
+                                                       if(lock){
+                                                           if(packaging){
+                                                               setIsFromReady(true)
+                                                           }else {
+                                                               console.log('form not ready')
+                                                           }
+                                                       }
+                                                   }
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       }
+
     }
 
-   
 
-    const handleClick = (event) => {
-        console.log(event.target.text)
-        const data = event.target.text
-        const field = event.target.name
-
-        switch (field) {
-            case "assemblyType":
-               setAssemblyType(data)
-
-                break;
-
-            case "design":
-                setDesign(data)
-
-
-                break;
-
-            case "color":
-                setColor(data)
-
-
-                break;
-
-            case "windowCode":
-                setWindowCode(data)
-
-
-                break;
-
-            case "trackRadius":
-                setTrackRadius(data)
-
-
-                break;
-
-            case "trackSize":
-                setTrackSize(data)
-
-
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    
     const handleChange = (event) => {
-        console.log(event.target.value)
-        const data = event.target.value
         const field = event.target.name
+
 
         switch (field) {
             case "assemblyType":
-               setAssemblyType(data)
+                setAssemblyType(event.target.value)
 
                 break;
 
             case "design":
-                setDesign(data)
+                setDesign(event.target.value)
 
 
                 break;
 
             case "color":
-                setColor(data)
+                setColor(event.target.value)
 
 
                 break;
 
             case "windowCode":
-                setWindowCode(data)
+                setWindowCode(event.target.value)
 
 
                 break;
 
             case "trackRadius":
-                setTrackRadius(data)
+                setTrackRadius(event.target.value)
 
 
                 break;
 
             case "trackSize":
-                setTrackSize(data)
+                setTrackSize(event.target.value)
 
 
                 break;
+            case "glassType":
+                setGlassType(event.target.value)
+
+
+                break;
+            case "section":
+                setSection(event.target.value)
+
+
+                break;
+            case "farming":
+                setFarming(event.target.value)
+
+
+                break;
+
+            case "spring":
+                setSpring(event.target.value)
+
+
+                break;
+
+            case "trackMount":
+                setTrackMount(event.target.value)
+
+
+                break;
+
+            case "trackLift":
+                setTracklift(event.target.value)
+
+
+                break;
+
+
+            case "packaging":
+                setPackaging(event.target.value)
+
+
+                break;
+            case "lock":
+                setLock(event.target.value)
+
+
+                break;
+
+
 
             default:
                 break;
         }
     }
 
-    // const handleChange = (event) => {
-    //     setCartData(event.target.value)
-    //     console.log(event.target.value)
-    // }
+
     
     const addToCart = () => {
-        cart.push(orderData)
+
+        cart.push({
+            assemblyType: assemblyType,
+            design: design,
+            color: color,
+            windowCode: windowCode,
+            trackRadius: trackRadius,
+            trackSize: trackSize,
+            glassType: glassType,
+            farming: farming,
+            section: section,
+            spring: spring,
+            trackMount: trackMount,
+            trackLift: trackLift,
+            packaging: packaging,
+            lock: lock,
+            price: 4000,
+            date: date,
+            id: tableData.length + 1
+        })
         console.log(cart)
+
     }
 
     const configurationMenus = {
@@ -163,7 +211,7 @@ export default function OrderDetailsPage() {
 
     return (
         <div>
-            
+
             <Navigation previousUrl={"/new_order/configure_order"} title={"Configure a new door 2/3"} />
 
             <div id="createOrderPage_3" className="container mt-3 w-75">
@@ -183,7 +231,7 @@ export default function OrderDetailsPage() {
 
                     <div className="container" style={{ width: "70%" }}>
 
-                        <ConfigureMenu  menuName={assemblyType}  fieldName={"assemblyType"} handleChange={handleChange} menus={configurationMenus.assemblyTypes} title={"Assembly Type"} />
+                        <ConfigureMenu menuName={assemblyType} fieldName={"assemblyType"} handleChange={handleChange} menus={configurationMenus.assemblyTypes} title={"Assembly Type"} />
 
                         <div className='dRow d-flex justify-content-between configureMenu'>
                             <p>Measure Size</p>
@@ -192,23 +240,23 @@ export default function OrderDetailsPage() {
 
                                 <div className='d-flex align-items-center justify-content-between mb-3'>
                                     <p className='mb-0 me-5'>Width</p>
-                                    <DropdownButton  handleChange={handleChange} menus={configurationMenus.measureSizeFt} title={"Feet"} />
-                                    <DropdownButton  handleChange={handleChange} menus={configurationMenus.measureSizetIn} title={"Inch"} />
+                                    <DropdownButton handleChange={handleChange} menus={configurationMenus.measureSizeFt} title={"Feet"} />
+                                    <DropdownButton handleChange={handleChange} menus={configurationMenus.measureSizetIn} title={"Inch"} />
                                 </div>
 
                                 <div className='d-flex align-items-center justify-content-between'>
                                     <p className='mb-0 me-5'>Height</p>
-                                    <DropdownButton  handleChange={handleChange} menus={configurationMenus.measureSizeFt} title={"Feet"} />
-                                    <DropdownButton  handleChange={handleChange} menus={configurationMenus.measureSizetIn} title={"Inch"} />
+                                    <DropdownButton handleChange={handleChange} menus={configurationMenus.measureSizeFt} title={"Feet"} />
+                                    <DropdownButton handleChange={handleChange} menus={configurationMenus.measureSizetIn} title={"Inch"} />
                                 </div>
 
                             </div>
 
                         </div>
 
-                        <ConfigureMenu  menuName={windowCode}  fieldName={"windowCode"} handleChange={handleChange} menus={configurationMenus.windowCodes} title={"Windowcode"} />
-                        <ConfigureMenu  menuName={design}  fieldName={"design"} handleChange={handleChange} menus={configurationMenus.designs} title={"Design"} />
-                        <ConfigureMenu  menuName={color}  fieldName={"color"} handleChange={handleChange} menus={configurationMenus.colors} title={"Color"} />
+                        <ConfigureMenu menuName={windowCode} fieldName={"windowCode"} handleChange={handleChange} menus={configurationMenus.windowCodes} title={"Windowcode"} />
+                        <ConfigureMenu menuName={design} fieldName={"design"} handleChange={handleChange} menus={configurationMenus.designs} title={"Design"} />
+                        <ConfigureMenu menuName={color} fieldName={"color"} handleChange={handleChange} menus={configurationMenus.colors} title={"Color"} />
                     </div>
 
                 </div>
@@ -222,9 +270,9 @@ export default function OrderDetailsPage() {
 
                     <div className="container" style={{ width: "70%" }}>
 
-                        <ConfigureMenu  menuName={``}  fieldName={"glassType"} handleChange={handleChange} menus={configurationMenus.glassTypes} title={"Glass Type"} />
-                        <ConfigureMenu  menuName={``}  fieldName={"section"} handleChange={handleChange} menus={configurationMenus.glazedSections} title={"Section(s) Glazed"} />
-                        <ConfigureMenu  menuName={``}  fieldName={"farming"} handleChange={handleChange} menus={configurationMenus.farmings} title={"Framing"} />
+                        <ConfigureMenu menuName={``} fieldName={"glassType"} handleChange={handleChange} menus={configurationMenus.glassTypes} title={"Glass Type"} />
+                        <ConfigureMenu menuName={``} fieldName={"section"} handleChange={handleChange} menus={configurationMenus.glazedSections} title={"Section(s) Glazed"} />
+                        <ConfigureMenu menuName={``} fieldName={"farming"} handleChange={handleChange} menus={configurationMenus.farmings} title={"Framing"} />
                     </div>
 
                 </div>
@@ -238,11 +286,11 @@ export default function OrderDetailsPage() {
 
                     <div className="container" style={{ width: "70%" }}>
 
-                        <ConfigureMenu  menuName={``}  fieldName={"spring"} handleChange={handleChange} menus={configurationMenus.springs} title={"Spring"} />
-                        <ConfigureMenu  menuName={trackSize}  fieldName={"trackSize"} handleChange={handleChange} menus={configurationMenus.trackSizes} title={"Track Size"} />
-                        <ConfigureMenu  menuName={``}  fieldName={"trackMount"} handleChange={handleChange} menus={configurationMenus.trankMounts} title={"Track Mount"} />
-                        <ConfigureMenu  menuName={``}  fieldName={"trackLift"} handleChange={handleChange} menus={configurationMenus.trackLifts} title={"Track Lift"} />
-                        <ConfigureMenu  menuName={trackRadius}  fieldName={"trackRadius"} handleChange={handleChange} menus={configurationMenus.trackRadius} title={"Track Radius"} />
+                        <ConfigureMenu menuName={``} fieldName={"spring"} handleChange={handleChange} menus={configurationMenus.springs} title={"Spring"} />
+                        <ConfigureMenu menuName={trackSize} fieldName={"trackSize"} handleChange={handleChange} menus={configurationMenus.trackSizes} title={"Track Size"} />
+                        <ConfigureMenu menuName={``} fieldName={"trackMount"} handleChange={handleChange} menus={configurationMenus.trankMounts} title={"Track Mount"} />
+                        <ConfigureMenu menuName={``} fieldName={"trackLift"} handleChange={handleChange} menus={configurationMenus.trackLifts} title={"Track Lift"} />
+                        <ConfigureMenu menuName={trackRadius} fieldName={"trackRadius"} handleChange={handleChange} menus={configurationMenus.trackRadius} title={"Track Radius"} />
                     </div>
 
                 </div>
@@ -256,12 +304,12 @@ export default function OrderDetailsPage() {
 
                     <div className="container" style={{ width: "70%" }}>
 
-                        <ConfigureMenu  menuName={``}  fieldName={"lock"} handleChange={handleChange} menus={configurationMenus.locks} title={"Lock"} />
+                        <ConfigureMenu menuName={``} fieldName={"lock"} handleChange={handleChange} menus={configurationMenus.locks} title={"Lock"} />
 
                         <div id="radioCheck" className=' d-flex justify-content-between configureMenu'>
                             <p>MISC Lock Options</p>
 
-                            <div  className="form-check" style={{ width: "450px" }}>
+                            <div className="form-check" style={{ width: "450px" }}>
                                 <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
                                 <label className="form-check-label" htmlFor="flexRadioDefault2">
                                     No Lock Hole
@@ -270,7 +318,7 @@ export default function OrderDetailsPage() {
                         </div>
 
 
-                        <ConfigureMenu  menuName={``}  fieldName={"packaging"} handleChange={handleChange} menus={configurationMenus.pacakgings} title={"Packaging"} />
+                        <ConfigureMenu menuName={``} fieldName={"packaging"} handleChange={handleChange} menus={configurationMenus.pacakgings} title={"Packaging"} />
 
                         <div className='dRow d-flex justify-content-between configureMenu mt-4'>
                             <p>Addtional Options</p>
@@ -285,7 +333,7 @@ export default function OrderDetailsPage() {
                                         </label>
                                     </div>
 
-                                    <DropdownButton  handleChange={handleChange} id={"extraStrutsDropdown"} menus={configurationMenus.extraStruts} title={"Extra Stuff"} />
+                                    <DropdownButton handleChange={handleChange} id={"extraStrutsDropdown"} menus={configurationMenus.extraStruts} title={"Extra Stuff"} />
                                 </div>
 
                                 <div className="form-check">
@@ -319,7 +367,7 @@ export default function OrderDetailsPage() {
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input mb-3" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input required={true} className="form-check-input mb-3" type="checkbox" value="" id="flexCheckDefault" />
                                     <label className="form-check-label" htmlFor="flexCheckDefault">
                                         Light Seal Kit
                                     </label>
@@ -346,7 +394,7 @@ export default function OrderDetailsPage() {
                 </div>
             </div>
 
-            <Footer btn1={"PREVIEW"} onClick={addToCart} btn2={"ADD TO CART"} url2={"/new_order/configure_order/add_details/cart"} />
+            <Footer isReady={isFormReady} btn1={"PREVIEW"} onClick={addToCart} btn2={"ADD TO CART"} url2={!isFormReady ? "#" : "/new_order/configure_order/add_details/cart" } />
 
         </div>
     )

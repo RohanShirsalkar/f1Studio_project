@@ -1,4 +1,4 @@
 let cart = []
 
 
-export {cart as cartProducts}
+export {cart as cart}

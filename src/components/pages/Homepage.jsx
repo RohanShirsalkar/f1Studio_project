@@ -1,28 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import TableRow from '../TableRow'
 import { tableData } from '../data/TableData'
 import { favorites } from '../data/favoritesData'
 import plusicon from '../../icons/plusicon.svg'
 import { Link } from 'react-router-dom'
-import TableDataCard from '../TableDataCard'
 import searchicon from '../../icons/searchicon.svg'
 import filtericon from '../../icons/filtericon.svg'
 import Table from '../Table'
 
 export default function Homepage() {
     const [activeTableData, setActiveTableData] = useState(tableData)
-
-    // const ordersData = tableData.map(element => {
-    //     return (
-    //         <TableRow productInfo={element.productInfo} cartName={element.cartName} shippingPoint={element.shippingPoint} createdBy={element.createdBy} expiry={element.expiry} date={element.date ? element.date : null} />
-    //     )
-    // })
-
-    // const favoritesData = favorites.map(element => {
-    //     <TableRow productInfo={element.productInfo} cartName={element.cartName} shippingPoint={element.shippingPoint} createdBy={element.createdBy} expiry={element.expiry} date={element.date ? element.date : null} />
-    // })
-    
-   
 
     const handleTableData = () => { 
         const path = window.location.pathname
@@ -75,8 +61,8 @@ export default function Homepage() {
                     </div>
                     <div>
                         <div class="btn-group w-100 shadow-sm" role="group" aria-label="Basic outlined example">
-                            <button type="button" class="btn  border" style={{ width: "100%", backgroundColor: "white" }}>Active (12)</button>
-                            <button type="button" class="btn  border" style={{ width: "100%", backgroundColor: "white" }}>Archived (3)</button>
+                            <button type="button" class="btn  border" style={{ width: "100%", backgroundColor: "white" }}>Active ({tableData.length})</button>
+                            <button type="button" class="btn  border" style={{ width: "100%", backgroundColor: "white" }}>Archived </button>
                         </div>
                     </div>
                 </div>
@@ -88,33 +74,7 @@ export default function Homepage() {
 
                 <Table  data={activeTableData}/>
 
-                {/* <table id="homepageTable" className="table table-striped table-borderless shadow">
-                    <thead className='text-secondary' style={{ fontSize: "12px" }}>
-                        <tr>
-                            <th scope="col">PRODUCT INFORMATION</th>
-                            <th scope="col">CART NAME</th>
-                            <th scope="col">SHIPPING POINT</th>
-                            <th scope="col">CREATED BY</th>
-                            <th scope="col">EXPIRY</th>
-                        </tr>
-                    </thead>
-                    <tbody style={{ fontSize: "15px" }}>
-                        {tableRowArray.reverse()}
-                    </tbody>
-                </table>
-
-                
-
-                <div id="homepageCards" >
-                    <TableDataCard />
-                    <TableDataCard />
-                    <TableDataCard />
-                    <TableDataCard />
-                    <TableDataCard />
-
-                </div> */}
-
-
+               
             </div>
         </div>
 

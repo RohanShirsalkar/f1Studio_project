@@ -11,7 +11,6 @@ import {
   Route,
 } from "react-router-dom";
 import { OrderDetailState } from './components/context/OrderDetails'
-import FavoritesPage from './components/pages/FavoritesPage';
 
 function App() {
   return (
