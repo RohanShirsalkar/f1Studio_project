@@ -10,6 +10,9 @@
 #homepageCards {
   display: none;
 }
+.active {
+  display: block;
+}
 
 
 /* NAVIGATION */

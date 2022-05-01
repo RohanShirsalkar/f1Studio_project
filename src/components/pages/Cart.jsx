@@ -20,6 +20,7 @@ export default function Cart() {
 
 
     const placeOrder = () => {
+        console.log('place order fn triggred')
 
         cart.forEach(element => {
             tableData.push(element)
@@ -150,7 +151,7 @@ export default function Cart() {
                     </div>
                 </div>
 
-                <Footer onClick={placeOrder} btn1={"PLACE ORDER"} btn2={"ADD MORE"} url1={"/"} url2={"/new_order"} />
+                <Footer onClickBtn1={placeOrder} btn1={"PLACE ORDER"} btn2={"ADD MORE"} url1={"/"} url2={"/new_order"} />
             </div>
         </div>
     )

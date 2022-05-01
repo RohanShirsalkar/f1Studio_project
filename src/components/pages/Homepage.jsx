@@ -10,6 +10,8 @@ import Table from '../Table'
 export default function Homepage() {
     const [activeTableData, setActiveTableData] = useState(tableData)
 
+   
+
     const handleTableData = () => { 
         const path = window.location.pathname
 
@@ -18,9 +20,11 @@ export default function Homepage() {
         }
         else {
             setActiveTableData(tableData)
-        }
-        
+        }   
     }
+
+    console.log(activeTableData)
+
 
     return (
         <div>
@@ -74,7 +78,6 @@ export default function Homepage() {
 
                 <Table  data={activeTableData}/>
 
-               
             </div>
         </div>
 

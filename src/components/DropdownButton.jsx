@@ -14,7 +14,7 @@ export default function DropdownButton(props) {
 
     return (
         <select onChange={props.handleChange} id="dropdownSelect" class="form-select" aria-label="Default select example" style={{ width: "150px" }}>
-            <option selected >Open this select menu</option>
+            <option selected >{props.title}</option>
             {listItemsArr}
         </select>
     )

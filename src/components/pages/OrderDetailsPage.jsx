@@ -5,12 +5,18 @@ import DropdownButton from '../DropdownButton'
 import Footer from '../Footer'
 import { cart } from '../../components/data/cartData'
 import { tableData } from '../data/TableData'
+import Alert from '../Alert'
 
 export default function OrderDetailsPage() {
     const [isFormReady, setIsFromReady] = useState(false)
+    const [nextPageUrl, setNextPageUrl] = useState("#")
 
     const [progressBar, setProgerssBar] = useState(0)
     const [cartData, setCartData] = useState()
+    const [field1, setField1] = useState(false)
+    const [field2, setField2] = useState(false)
+    const [field3, setField3] = useState(false)
+    const [field4, setField4] = useState(false)
 
     const [assemblyType, setAssemblyType] = useState()
     const [design, setDesign] = useState()
@@ -29,45 +35,103 @@ export default function OrderDetailsPage() {
 
     const date = new Date().toLocaleDateString()
 
-    const checkForm = () => {
 
-       if(assemblyType){
-           if(design){
-               if(color){
-                   if(windowCode){
-                       if(trackRadius){
-                           if(trackSize){
-                               if(glassType){
-                                   if(section){
-                                       if(farming){
-                                           if(spring){
-                                               if(trackMount){
-                                                   if(trackLift){
-                                                       if(lock){
-                                                           if(packaging){
-                                                               setIsFromReady(true)
-                                                           }else {
-                                                               console.log('form not ready')
-                                                           }
-                                                       }
-                                                   }
-                                               }
-                                           }
-                                       }
-                                   }
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
+    const alert = document.getElementById('alert')
+    const showAlert = () => {
+        alert.style.display = 'block'
+    }
 
+    const hideAlert = () => {
+        alert.style.display = "none"
+    }
+
+    const checkForm2 = () => {
+        console.log('add to cart fn triggred')
+
+        if (field1) {
+            if (field2) {
+                if (field3) {
+                    if (field4) {
+                        setNextPageUrl("/new_order/configure_order/add_details/cart")
+                        addToCart()
+                        hideAlert()
+                    } else {
+                        showAlert()
+                    }
+                } else {
+                    showAlert()
+                }
+            } else {
+                showAlert()
+            }
+        } else {
+            showAlert()
+        }
+    }
+
+
+    const updateProgress = () => {
+
+        if (!field1) {
+
+            if (assemblyType) {
+                if (windowCode) {
+                    if (design) {
+                        if (color) {
+                            setProgerssBar(progressBar + 25)
+                            setField1(true)
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!field2) {
+
+            if (glassType) {
+                if (section) {
+                    if (farming) {
+                        setProgerssBar(progressBar + 25)
+                        setField2(true)
+                    }
+                }
+            }
+        }
+
+        if (!field3) {
+
+            if (spring) {
+                if (trackSize) {
+                    if (trackMount) {
+                        if (trackLift) {
+                            if (trackRadius) {
+                                setProgerssBar(progressBar + 25)
+                                setField3(true)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (!field4) {
+
+            if (lock) {
+                if (packaging) {
+                    setProgerssBar(progressBar + 25)
+                    setField4(true)
+                }
+            }
+        }
     }
 
 
     const handleChange = (event) => {
+
         const field = event.target.name
+        updateProgress()
+        console.log(assemblyType, windowCode, design, color)
+        console.log(progressBar)
 
 
         switch (field) {
@@ -79,63 +143,52 @@ export default function OrderDetailsPage() {
             case "design":
                 setDesign(event.target.value)
 
-
                 break;
 
             case "color":
                 setColor(event.target.value)
-
 
                 break;
 
             case "windowCode":
                 setWindowCode(event.target.value)
 
-
                 break;
 
             case "trackRadius":
                 setTrackRadius(event.target.value)
-
 
                 break;
 
             case "trackSize":
                 setTrackSize(event.target.value)
 
-
                 break;
             case "glassType":
                 setGlassType(event.target.value)
-
 
                 break;
             case "section":
                 setSection(event.target.value)
 
-
                 break;
             case "farming":
                 setFarming(event.target.value)
-
 
                 break;
 
             case "spring":
                 setSpring(event.target.value)
 
-
                 break;
 
             case "trackMount":
                 setTrackMount(event.target.value)
 
-
                 break;
 
             case "trackLift":
                 setTracklift(event.target.value)
-
 
                 break;
 
@@ -143,15 +196,11 @@ export default function OrderDetailsPage() {
             case "packaging":
                 setPackaging(event.target.value)
 
-
                 break;
             case "lock":
                 setLock(event.target.value)
 
-
                 break;
-
-
 
             default:
                 break;
@@ -159,8 +208,10 @@ export default function OrderDetailsPage() {
     }
 
 
-    
+
     const addToCart = () => {
+
+
 
         cart.push({
             assemblyType: assemblyType,
@@ -182,6 +233,7 @@ export default function OrderDetailsPage() {
             id: tableData.length + 1
         })
         console.log(cart)
+        console.log(tableData.length)
 
     }
 
@@ -213,11 +265,12 @@ export default function OrderDetailsPage() {
         <div>
 
             <Navigation previousUrl={"/new_order/configure_order"} title={"Configure a new door 2/3"} />
+            <Alert message={"Fill complete form"} />
 
             <div id="createOrderPage_3" className="container mt-3 w-75">
 
                 <div className="progress w-25 mx-auto mb-2" style={{ height: "5px" }}>
-                    <div className="progress-bar bg-success w-50" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" ></div>
+                    <div className="progress-bar bg-success " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style={{ width: `${progressBar}%` }}></div>
                 </div>
                 <span className='text-center'><p><strong>50%</strong> Completed</p></span>
 
@@ -264,6 +317,7 @@ export default function OrderDetailsPage() {
                 {/* 2nd Block */}
 
                 <div className="card  mx-auto shadow-sm mb-3" style={{ border: "none" }}>
+
                     <div className="card-header mb-4 fw-bold">
                         Window Options
                     </div>
@@ -394,7 +448,7 @@ export default function OrderDetailsPage() {
                 </div>
             </div>
 
-            <Footer isReady={isFormReady} btn1={"PREVIEW"} onClick={addToCart} btn2={"ADD TO CART"} url2={!isFormReady ? "#" : "/new_order/configure_order/add_details/cart" } />
+            <Footer disabled={true} btn1={"PREVIEW"} onClickBtn2={checkForm2} btn2={"ADD TO CART"} url2={nextPageUrl} />
 
         </div>
     )

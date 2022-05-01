@@ -22,7 +22,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="/favorites" element={<Homepage />} />
+            <Route path="/favorites" element={<Homepage />}/>
             <Route path="/new_order" element={<CreateorderPage />} />
             <Route path="/new_order/configure_order" element={<ConfigureOrderPage />} />
             <Route path="/new_order/configure_order/add_details" element={<OrderDetailsPage />} />
