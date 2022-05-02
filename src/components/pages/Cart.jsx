@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom'
 import { tableData } from '../data/TableData'
 import { cart } from '../data/cartData'
 import OrderDetailCard from '../OrderDetailCard'
+import { useContext } from 'react'
+import { OrderDetailsContext } from '../context/OrderDetails'
+
 
 
 export default function Cart() {
+    const orderStatus = useContext(OrderDetailsContext)
+    console.log(orderStatus.isFormReady)
     const [cartProducts, setCartProducts] = useState([])
     const [count, setCount] = useState(0)
 
@@ -30,7 +35,7 @@ export default function Cart() {
     }
 
     let cartTotal = 0
-    
+
     cart.forEach(element => {
         cartTotal += element.price
     })
@@ -42,14 +47,14 @@ export default function Cart() {
 
         })
         setCartProducts(cartProductArray)
-    },[count])
+    }, [count])
 
 
     return (
         <div>
             <Navigation title={"Product name #Cart number"} previousUrl={"/new_order/configure_order/add_details"} />
 
-            <div id="cartPage"  className="container w-75 mt-3 pb-5">
+            <div id="cartPage" className="container w-75 mt-3 pb-5">
                 {/* <OrderDetailCard /> */}
                 {cartProducts && cartProducts.reverse()}
 

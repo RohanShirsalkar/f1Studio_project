@@ -6,13 +6,14 @@ import Footer from '../Footer'
 import { cart } from '../../components/data/cartData'
 import { tableData } from '../data/TableData'
 import Alert from '../Alert'
+import { useContext } from 'react'
+import { OrderDetailsContext } from '../context/OrderDetails'
 
-export default function OrderDetailsPage() {
-    const [isFormReady, setIsFromReady] = useState(false)
-    const [nextPageUrl, setNextPageUrl] = useState("#")
+export default function OrderDetailsPage(props) {
+
+    const orderStatus = useContext(OrderDetailsContext)
 
     const [progressBar, setProgerssBar] = useState(0)
-    const [cartData, setCartData] = useState()
     const [field1, setField1] = useState(false)
     const [field2, setField2] = useState(false)
     const [field3, setField3] = useState(false)
@@ -45,6 +46,11 @@ export default function OrderDetailsPage() {
         alert.style.display = "none"
     }
 
+    const btn2fn = () => {
+        orderStatus.setIsFromReady(true)
+        props.status.setStatus(true)
+    }
+
     const checkForm2 = () => {
         console.log('add to cart fn triggred')
 
@@ -52,9 +58,9 @@ export default function OrderDetailsPage() {
             if (field2) {
                 if (field3) {
                     if (field4) {
-                        setNextPageUrl("/new_order/configure_order/add_details/cart")
                         addToCart()
                         hideAlert()
+                        props.status.setStatus(true)
                     } else {
                         showAlert()
                     }
@@ -448,7 +454,7 @@ export default function OrderDetailsPage() {
                 </div>
             </div>
 
-            <Footer disabled={true} btn1={"PREVIEW"} onClickBtn2={checkForm2} btn2={"ADD TO CART"} url2={nextPageUrl} />
+            <Footer  btn1={"PREVIEW"} onClickBtn1={btn2fn} onClickBtn2={checkForm2} btn2={"ADD TO CART"} url2={"/new_order/configure_order/add_details/cart"} />
 
         </div>
     )
