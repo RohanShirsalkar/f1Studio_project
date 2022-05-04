@@ -11,21 +11,12 @@ import {
   Route,
 } from "react-router-dom";
 import { OrderDetailState } from './components/context/OrderDetails'
-import { OrderDetailsContext } from './components/context/OrderDetails';
-import { useContext } from 'react';
 import { useState } from 'react';
+import { favorites } from './components/data/favoritesData';
+import { tableData } from './components/data/TableData';
 
 function App() {
   const [status, setStatus] = useState(false)
-  // console.log(status)
-  const pathName = window.location.pathname
-  
-  const orderDetailContext = useContext(OrderDetailsContext)
-  // console.log(orderDetailContext.isFormReady)
-  const orderStatus = true
-  // console.log(orderDetailContext && orderStatus)
-
- 
 
 
   return (
@@ -33,15 +24,15 @@ function App() {
       <OrderDetailState >
         <Router>
 
-
           <Navbar />
           <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/favorites" element={<Homepage />}/>
+            <Route path="/" element={<Homepage link={tableData} />} />
+            <Route path="/favorites" element={<Homepage link={favorites} />} />
             <Route path="/new_order" element={<CreateorderPage />} />
             <Route path="/new_order/configure_order" element={<ConfigureOrderPage />} />
-            <Route path="/new_order/configure_order/add_details" element={<OrderDetailsPage status={{status, setStatus}} />} />
-            <Route path="/new_order/configure_order/add_details/cart" element={status ? <Cart /> : <OrderDetailsPage status={{status, setStatus}} />} />
+            <Route path="/new_order/configure_order/add_details" element={<OrderDetailsPage status={{ status, setStatus }} />} />
+            {/* <Route path="/new_order/configure_order/edit_order" element={<OrderDetailsPage status={{ status, setStatus }} />} /> */}
+            <Route path="/new_order/configure_order/add_details/cart" element={status ? <Cart /> : <OrderDetailsPage status={{ status, setStatus }} />} />
             {/* <Route path="/new_order/configure_order/add_details/cart" element={<Cart />} /> */}
           </Routes>
 

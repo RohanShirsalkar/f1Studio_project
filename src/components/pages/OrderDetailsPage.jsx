@@ -37,6 +37,11 @@ export default function OrderDetailsPage(props) {
     const date = new Date().toLocaleDateString()
 
 
+    const onLoadfn = () => {
+        console.log("loaded")
+        props.status.setStatus(false)
+    }
+
     const alert = document.getElementById('alert')
     const showAlert = () => {
         alert.style.display = 'block'
@@ -52,12 +57,12 @@ export default function OrderDetailsPage(props) {
     }
 
     const checkForm2 = () => {
-        console.log('add to cart fn triggred')
+        console.log('check form fn triggred')
 
-        if (field1) {
-            if (field2) {
-                if (field3) {
-                    if (field4) {
+        if (!field1) {
+            if (!field2) {
+                if (!field3) {
+                    if (!field4) {
                         addToCart()
                         hideAlert()
                         props.status.setStatus(true)
@@ -268,7 +273,8 @@ export default function OrderDetailsPage(props) {
 
 
     return (
-        <div>
+
+        <div onLoad={onLoadfn}>
 
             <Navigation previousUrl={"/new_order/configure_order"} title={"Configure a new door 2/3"} />
             <Alert message={"Fill complete form"} />
@@ -454,7 +460,7 @@ export default function OrderDetailsPage(props) {
                 </div>
             </div>
 
-            <Footer  btn1={"PREVIEW"} onClickBtn1={btn2fn} onClickBtn2={checkForm2} btn2={"ADD TO CART"} url2={"/new_order/configure_order/add_details/cart"} />
+            <Footer btn1={"PREVIEW"} onClickBtn1={btn2fn} onClickBtn2={checkForm2} btn2={"ADD TO CART"} url2={"/new_order/configure_order/add_details/cart"} />
 
         </div>
     )

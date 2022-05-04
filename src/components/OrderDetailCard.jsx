@@ -5,8 +5,8 @@ import copyicon from '../icons/copyicon.svg'
 import pencilicon from '../icons/pencilicon.svg'
 import { Link } from 'react-router-dom'
 
-
 export default function OrderDetailCard(props) {
+
     return (
         <div>
             <div id="mainCard" class="card p-3 mb-2">
@@ -55,7 +55,7 @@ export default function OrderDetailCard(props) {
                             </div>
 
                             <div className="w-50 priceDetails " style={{ textAlign: "right", }}>
-                                <span>Net Price:</span><span className='fs-4 fw-bold'>$$ {props.price}.00</span><br />
+                                <span>Net Price:</span><span className='fs-4 fw-bold'>$ {props.price}.00</span><br />
                                 <span>Unit Price:</span><span className=''>$ {props.price + 300}.00</span><br />
                                 <a href="#" style={{ textDecoration: "none", color: "brown", fontSize: "13px" }} >View Price Details</a>
                             </div>

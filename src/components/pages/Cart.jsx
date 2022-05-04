@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navigation from '../Navigation'
 import Footer from '../Footer'
-import { Link } from 'react-router-dom'
 import { tableData } from '../data/TableData'
 import { cart } from '../data/cartData'
 import OrderDetailCard from '../OrderDetailCard'
@@ -17,20 +16,27 @@ export default function Cart() {
     const [count, setCount] = useState(0)
 
 
+    const checkDevice = () => {
+        const mainContainer = document.getElementById('cartPage')
+        if(window.innerWidth < 1024){
+            mainContainer.classList.remove('container')
+        }
+        else {
+            mainContainer.classList.add("container")
+        }
+    }
+
     const handleClick = (event) => {
         let index = cart.findIndex(item => item.id == event.target.name)
         cart.splice(index, 1)
         setCount(count + 1)
     }
 
-
     const placeOrder = () => {
-        console.log('place order fn triggred')
 
         cart.forEach(element => {
             tableData.push(element)
         });
-
 
     }
 
@@ -41,17 +47,15 @@ export default function Cart() {
     })
 
     useEffect(() => {
-
         const cartProductArray = cart.map(element => {
             return <OrderDetailCard setCount={setCount} handleClick={handleClick} name={element.id} assemblyType={element.assemblyType} color={element.color} glassType={element.glassType} farming={element.farming} price={element.price} trackRadius={element.trackRadius} />
-
         })
         setCartProducts(cartProductArray)
     }, [count])
 
 
     return (
-        <div>
+        <div onLoad={checkDevice}>
             <Navigation title={"Product name #Cart number"} previousUrl={"/new_order/configure_order/add_details"} />
 
             <div id="cartPage" className="container w-75 mt-3 pb-5">
