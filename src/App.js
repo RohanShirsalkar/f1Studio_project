@@ -14,9 +14,15 @@ import { OrderDetailState } from './components/context/OrderDetails'
 import { useState } from 'react';
 import { favorites } from './components/data/favoritesData';
 import { tableData } from './components/data/TableData';
+import { cart } from './components/data/cartData'
 
 function App() {
   const [status, setStatus] = useState(false)
+
+  const editFn = (event) => {
+    let index = cart.findIndex(item => item.id == event.target.name)
+    console.log("edit fn trigg")
+  }
 
 
   return (
@@ -31,8 +37,8 @@ function App() {
             <Route path="/new_order" element={<CreateorderPage />} />
             <Route path="/new_order/configure_order" element={<ConfigureOrderPage />} />
             <Route path="/new_order/configure_order/add_details" element={<OrderDetailsPage status={{ status, setStatus }} />} />
-            {/* <Route path="/new_order/configure_order/edit_order" element={<OrderDetailsPage status={{ status, setStatus }} />} /> */}
-            <Route path="/new_order/configure_order/add_details/cart" element={status ? <Cart /> : <OrderDetailsPage status={{ status, setStatus }} />} />
+            <Route path="/new_order/configure_order/edit_order" element={<OrderDetailsPage status={{ status, setStatus }} />} />
+            <Route path="/new_order/configure_order/add_details/cart" element={status ? <Cart /> : <Cart editFn={editFn} status={{ status, setStatus }} />} />
             {/* <Route path="/new_order/configure_order/add_details/cart" element={<Cart />} /> */}
           </Routes>
 

@@ -9,7 +9,7 @@ import { OrderDetailsContext } from '../context/OrderDetails'
 
 
 
-export default function Cart() {
+export default function Cart(props) {
     const orderStatus = useContext(OrderDetailsContext)
     console.log(orderStatus.isFormReady)
     const [cartProducts, setCartProducts] = useState([])
@@ -48,13 +48,14 @@ export default function Cart() {
 
     useEffect(() => {
         const cartProductArray = cart.map(element => {
-            return <OrderDetailCard setCount={setCount} handleClick={handleClick} name={element.id} assemblyType={element.assemblyType} color={element.color} glassType={element.glassType} farming={element.farming} price={element.price} trackRadius={element.trackRadius} />
+            return <OrderDetailCard editFn={props.editFn} setCount={setCount} handleClick={handleClick} name={element.id} assemblyType={element.assemblyType} color={element.color} glassType={element.glassType} farming={element.farming} price={element.price} trackRadius={element.trackRadius} />
         })
         setCartProducts(cartProductArray)
     }, [count])
 
 
     return (
+        
         <div onLoad={checkDevice}>
             <Navigation title={"Product name #Cart number"} previousUrl={"/new_order/configure_order/add_details"} />
 

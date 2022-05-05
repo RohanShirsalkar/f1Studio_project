@@ -13,6 +13,12 @@ export default function OrderDetailsPage(props) {
 
     const orderStatus = useContext(OrderDetailsContext)
 
+    if (window.location.pathname == "/new_order/configure_order/edit_order") {
+        console.log(`Edit Order Page`)
+    }
+
+    // console.log(window.location.pathname)
+
     const [progressBar, setProgerssBar] = useState(0)
     const [field1, setField1] = useState(false)
     const [field2, setField2] = useState(false)

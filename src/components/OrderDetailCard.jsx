@@ -71,7 +71,7 @@ export default function OrderDetailCard(props) {
                     <div className="cartPagebuttons">
                         <div class="btn-group" role="group" aria-label="Basic outlined example" style={{ width: "100%" }}>
                             <button type="button" class="btn btn-outline-secondary"><img className='me-2' src={hearticon} alt="" /> FAVORITES</button>
-                            <Link to="/new_order/configure_order/add_details" type="button" class="btn btn-outline-secondary"><img className='me-2' src={pencilicon} alt="" /> EDIT</Link>
+                            <Link to="/new_order/configure_order/edit_order" onClick={props.editFn} type="button" class="btn btn-outline-secondary"><img className='me-2' src={pencilicon} alt="" /> EDIT</Link>
                             <button type="button" class="btn btn-outline-secondary"><img className='me-2' src={copyicon} alt="" /> COPY</button>
                             <button type="button" onClick={props.handleClick} name={props.name} class="btn btn-outline-secondary"><img className='me-2' src={deleteicon} alt="" /> DELETE</button>
                         </div>
