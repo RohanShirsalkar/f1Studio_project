@@ -11,7 +11,6 @@ import { OrderDetailsContext } from '../context/OrderDetails'
 
 export default function Cart(props) {
     const orderStatus = useContext(OrderDetailsContext)
-    console.log(orderStatus.isFormReady)
     const [cartProducts, setCartProducts] = useState([])
     const [count, setCount] = useState(0)
 
@@ -38,6 +37,8 @@ export default function Cart(props) {
             tableData.push(element)
         });
 
+        cart.splice(0, cart.length)
+
     }
 
     let cartTotal = 0
@@ -48,14 +49,14 @@ export default function Cart(props) {
 
     useEffect(() => {
         const cartProductArray = cart.map(element => {
-            return <OrderDetailCard editFn={props.editFn} setCount={setCount} handleClick={handleClick} name={element.id} assemblyType={element.assemblyType} color={element.color} glassType={element.glassType} farming={element.farming} price={element.price} trackRadius={element.trackRadius} />
-        })
+            return <OrderDetailCard setCount={setCount} handleClick={handleClick} name={element.id} assemblyType={element.assemblyType} color={element.color} glassType={element.glassType} farming={element.farming} price={element.price} trackRadius={element.trackRadius} />
+        })  
         setCartProducts(cartProductArray)
     }, [count])
 
 
     return (
-        
+
         <div onLoad={checkDevice}>
             <Navigation title={"Product name #Cart number"} previousUrl={"/new_order/configure_order/add_details"} />
 
@@ -66,19 +67,19 @@ export default function Cart(props) {
 
                 <div id="cartpg-block-2" className='d-flex dRow mb-2'>
                     <div className="left me-1 w-50 mb-2">
-                        <div class="card p-2 mb-2">
-                            <div class="card-body">
+                        <div className="card p-2 mb-2">
+                            <div className="card-body">
                                 <span className='text-dark'>Change Delivery Date</span><br />
                                 <input type="date" className='py-2 px-2 my-1 border text-secondary' placeholder="Rohan" style={{ width: "100%", fontSize: "15px" }} /><br />
                                 <span className='text-dark'>Standard Delivery: Tue May 28 - 2019</span>
                             </div>
                         </div>
 
-                        <div class="card p-2">
-                            <div class="card-body">
-                                <div class="form-floating ">
+                        <div className="card p-2">
+                            <div className="card-body">
+                                <div className="form-floating ">
                                     <span className='text-dark'>Change Delivery Date</span><br />
-                                    <input type="email" class="py-2 border my-1 px-2" placeholder="Enter PO number" style={{ width: "100%", }} />
+                                    <input type="email" className="py-2 border my-1 px-2" placeholder="Enter PO number" style={{ width: "100%", }} />
                                     <span className='text-dark'>Change Delivery Date</span><br />
 
                                 </div>
@@ -87,8 +88,8 @@ export default function Cart(props) {
                     </div>
 
                     <div className="right ms-1 w-50 mb-2">
-                        <div class="card p-2">
-                            <div class="card-body">
+                        <div className="card p-2">
+                            <div className="card-body">
                                 <h6>Bill Summary</h6>
                                 <div className="summary">
                                     <div>
@@ -110,9 +111,9 @@ export default function Cart(props) {
                                 </div>
                                 <hr />
                                 <div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                        <label class="form-check-label fw-bold" for="flexCheckDefault">
+                                    <div className="form-check">
+                                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                        <label className="form-check-label fw-bold" for="flexCheckDefault">
                                             Apply Tax
                                         </label>
                                         <p className='text-secondary mb-0'>(The 1% iStore discount is calculated into the total price for all doors and door parts. Please refer to the quote or order acknowledgment for details.) </p>
@@ -124,8 +125,8 @@ export default function Cart(props) {
                 </div>
 
                 <div className='mb-2'>
-                    <div class="card">
-                        <div id="cartpg-lastBlock" class="card-body d-flex dRow">
+                    <div className="card">
+                        <div id="cartpg-lastBlock" className="card-body d-flex dRow">
                             <div className="left  w-50 border-end  d-flex align-items-center justify-content-between">
                                 <div id="shippingDetails" className="left p-2 w-75">
                                     <span>Shipping To</span>

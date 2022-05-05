@@ -13,12 +13,6 @@ export default function OrderDetailsPage(props) {
 
     const orderStatus = useContext(OrderDetailsContext)
 
-    if (window.location.pathname == "/new_order/configure_order/edit_order") {
-        console.log(`Edit Order Page`)
-    }
-
-    // console.log(window.location.pathname)
-
     const [progressBar, setProgerssBar] = useState(0)
     const [field1, setField1] = useState(false)
     const [field2, setField2] = useState(false)
@@ -44,7 +38,6 @@ export default function OrderDetailsPage(props) {
 
 
     const onLoadfn = () => {
-        console.log("loaded")
         props.status.setStatus(false)
     }
 
@@ -57,13 +50,9 @@ export default function OrderDetailsPage(props) {
         alert.style.display = "none"
     }
 
-    const btn2fn = () => {
-        orderStatus.setIsFromReady(true)
-        props.status.setStatus(true)
-    }
+
 
     const checkForm2 = () => {
-        console.log('check form fn triggred')
 
         if (!field1) {
             if (!field2) {
@@ -89,7 +78,7 @@ export default function OrderDetailsPage(props) {
 
     const updateProgress = () => {
 
-        if (!field1) {
+        if (field1) {
 
             if (assemblyType) {
                 if (windowCode) {
@@ -103,7 +92,7 @@ export default function OrderDetailsPage(props) {
             }
         }
 
-        if (!field2) {
+        if (field2) {
 
             if (glassType) {
                 if (section) {
@@ -115,7 +104,7 @@ export default function OrderDetailsPage(props) {
             }
         }
 
-        if (!field3) {
+        if (field3) {
 
             if (spring) {
                 if (trackSize) {
@@ -131,7 +120,7 @@ export default function OrderDetailsPage(props) {
             }
         }
 
-        if (!field4) {
+        if (field4) {
 
             if (lock) {
                 if (packaging) {
@@ -147,8 +136,6 @@ export default function OrderDetailsPage(props) {
 
         const field = event.target.name
         updateProgress()
-        console.log(assemblyType, windowCode, design, color)
-        console.log(progressBar)
 
 
         switch (field) {
@@ -249,8 +236,6 @@ export default function OrderDetailsPage(props) {
             date: date,
             id: tableData.length + 1
         })
-        console.log(cart)
-        console.log(tableData.length)
 
     }
 
@@ -466,7 +451,7 @@ export default function OrderDetailsPage(props) {
                 </div>
             </div>
 
-            <Footer btn1={"PREVIEW"} onClickBtn1={btn2fn} onClickBtn2={checkForm2} btn2={"ADD TO CART"} url2={"/new_order/configure_order/add_details/cart"} />
+            <Footer btn1={"PREVIEW"}  onClickBtn2={checkForm2} btn2={"ADD TO CART"} url2={"/new_order/configure_order/add_details/cart"} />
 
         </div>
     )

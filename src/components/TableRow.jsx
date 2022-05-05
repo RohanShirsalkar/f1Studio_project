@@ -11,7 +11,7 @@ export default function TableRow(props) {
       <td>{props.cartName}</td>
       <td>{props.shippingPoint}</td>
       <td>{props.createdBy}</td>
-      <td>{props.expiry}{props.date == today && <span class="ms-3 badge rounded-pill bg-success" style={{position: "absolute",right: "5rem"}}>NEW</span>}</td>
+      <td>{props.expiry}{props.date == today && <span className="ms-3 badge rounded-pill bg-success" style={{position: "absolute",right: "5rem"}}>NEW</span>}</td>
     </tr>
   )
 }

@@ -6,12 +6,6 @@ import SelectOption from '../components/SelectOption'
 
 export default function DropdownButton(props) {
 
-    const value = ""
-    // const [value, setValue] = useState(2)
-    
-
-        // const dropdown = document.getElementById('dropdownSelect')
-        // dropdown.value = 6
     
     const listItemsArr = props.menus.map(element => {
         return (
@@ -20,7 +14,7 @@ export default function DropdownButton(props) {
     })
 
     return (
-        <select onChange={props.handleChange} value={!value ? 6 : value } id="dropdownSelect" class="form-select" aria-label="Default select example" style={{ width: "150px" }}>
+        <select onChange={props.handleChange} id="dropdownSelect" className="form-select" aria-label="Default select example" style={{ width: "150px" }}>
             <option selected >{props.title}</option>
             {listItemsArr}
         </select>

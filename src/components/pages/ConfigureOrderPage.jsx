@@ -15,9 +15,9 @@ export default function ConfigureOrderPage() {
             <Navigation title={"Configure a new door 1/3"} previousUrl={"/new_order"} />
 
             <div id="createOrderPage_2" className="container w-75 " style={{ position: "relative" }} >
-                <div class="card w-100 pt-3" style={{ height: "100vh" }}>
+                <div className="card w-100 pt-3" style={{ height: "100vh" }}>
 
-                    <div id={"container"} class="pt-3 mx-auto" style={{ width: "70%" }}>
+                    <div id={"container"} className="pt-3 mx-auto" style={{ width: "70%" }}>
 
                         <ConfigureMenu title={"Select Category"} menus={category} />
                         <ConfigureMenu title={"Select Series"} menus={series} />

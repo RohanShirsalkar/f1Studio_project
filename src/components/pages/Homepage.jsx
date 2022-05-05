@@ -12,6 +12,7 @@ export default function Homepage(props) {
     const handleSearch = (event) => {
         setQuery(event.target.value)
     }
+    
 
     const finalArray = props.link.filter(element => {
         const lo_assemblyType = element.assemblyType.toLocaleLowerCase().replace(/\s/g, "")
@@ -56,9 +57,9 @@ export default function Homepage(props) {
                         </div>
                     </div>
                     <div>
-                        <div class="btn-group w-100 shadow-sm" role="group" aria-label="Basic outlined example">
-                            <button type="button" class="btn  border" style={{ width: "100%", backgroundColor: "white" }}>Active ({props.link.length})</button>
-                            <Link to="/archivedcarts" type="button" class="btn  border" style={{ width: "100%", backgroundColor: "white" }}>Archived </Link>
+                        <div className="btn-group w-100 shadow-sm" role="group" aria-label="Basic outlined example">
+                            <button type="button" className="btn  border" style={{ width: "100%", backgroundColor: "white" }}>Active ({props.link.length})</button>
+                            <Link to="/archivedcarts" type="button" className="btn  border" style={{ width: "100%", backgroundColor: "white" }}>Archived </Link>
                         </div>
                     </div>
                 </div>

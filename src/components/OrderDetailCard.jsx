@@ -9,8 +9,8 @@ export default function OrderDetailCard(props) {
 
     return (
         <div>
-            <div id="mainCard" class="card p-3 mb-2">
-                <div class="card-body">
+            <div id="mainCard" className="card p-3 mb-2">
+                <div className="card-body">
                     <div id="firstCard" className="top mb-4 w-75">
                         <h5>{props.assemblyType + " " + props.color + " " + props.glassType +" " + props.trackRadius }</h5>
                         {/* <h5>10' 0'' X 10' 0.0'' CAN211 CC W1 COMPLETE DOOR INTELLICORE OBSCURE, 5TH GENERATION FINISH WALDER DOOR</h5> */}
@@ -69,11 +69,11 @@ export default function OrderDetailCard(props) {
                     </div>
 
                     <div className="cartPagebuttons">
-                        <div class="btn-group" role="group" aria-label="Basic outlined example" style={{ width: "100%" }}>
-                            <button type="button" class="btn btn-outline-secondary"><img className='me-2' src={hearticon} alt="" /> FAVORITES</button>
-                            <Link to="/new_order/configure_order/edit_order" onClick={props.editFn} type="button" class="btn btn-outline-secondary"><img className='me-2' src={pencilicon} alt="" /> EDIT</Link>
-                            <button type="button" class="btn btn-outline-secondary"><img className='me-2' src={copyicon} alt="" /> COPY</button>
-                            <button type="button" onClick={props.handleClick} name={props.name} class="btn btn-outline-secondary"><img className='me-2' src={deleteicon} alt="" /> DELETE</button>
+                        <div className="btn-group" role="group" aria-label="Basic outlined example" style={{ width: "100%" }}>
+                            <button type="button" className="btn btn-outline-secondary"><img className='me-2' src={hearticon} alt="" /> FAVORITES</button>
+                            <Link to="/new_order/configure_order/add_details"  type="button" className="btn btn-outline-secondary"><img className='me-2' src={pencilicon} alt="" /> EDIT</Link>
+                            <button type="button" className="btn btn-outline-secondary"><img className='me-2' src={copyicon} alt="" /> COPY</button>
+                            <button type="button" onClick={props.handleClick} name={props.name} className="btn btn-outline-secondary"><img className='me-2' src={deleteicon} alt="" /> DELETE</button>
                         </div>
                     </div>
                 </div>
